@@ -7,7 +7,7 @@ const Slots = (props) => {
     useEffect(() => {
         if (props.isButtonClicked) {
             if(!props.debug) props.setSlotValue(Math.floor(Math.random() * 10));
-            else props.setSlotValue(7);
+            else props.setSlotValue(4);
             props.setIsButtonClicked(!props.isButtonClicked);
             setAnimation(true);
             setTimeout(() => {
@@ -16,6 +16,44 @@ const Slots = (props) => {
         }
     }, [props, props.isButtonClicked]);
 
+    useEffect(() => {
+        $(".slot").each(function () {
+            var $panes = $(".slotvalue_number", this),
+            paneSize = $panes.first().height(),
+            zDepth = paneSize / (2 * Math.tan(Math.PI / $panes.length));
+
+            $panes.each(function (index) {
+                var xAngle = (360 / $panes.length) * index;
+                $(this).attr(
+                    "style",
+                    "-webkit-transform: rotateX(" + 
+                    xAngle + "deg) translateZ(" + 
+                    zDepth + "px); transform: rotateX(" +
+                    xAngle + "deg) translateZ(" +
+                    zDepth + "px);"
+                );
+            });
+        });
+    }, [animation]);
+
+    return (
+        <div className="space">
+            <div className="slot">
+                <div className="slotvalue" id="ring">
+                    {!animation && props.slotValue}
+                    {animation && [♠, ♥, ♦, ♣].map((elem, index) => {
+                        return (
+                            <div className="slotvalue_number" id="slot" key={index}>
+                                {elem}
+                            </div>
+                        );
+                    })}
+
+                </div>
+            </div>
+
+        </div>
+    );
 };
 
 export default Slots;
