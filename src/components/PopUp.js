@@ -11,11 +11,11 @@ const PopUp = (props) => {
 
     useEffect(() => {
         if (
-            typeof slotOneValue == "number" &&
-            typeof slotTwoValue == "number" &&
-            typeof slotThreeValue == "number"
+            typeof slotOneValue === "number" &&
+            typeof slotTwoValue === "number" &&
+            typeof slotThreeValue === "number"
         ) {
-            if (slotOneValue == slotTwoValue && slotTwoValue === setSlotThreeValue) {
+            if (slotOneValue === slotTwoValue && slotTwoValue === setSlotThreeValue) {
                 if (slotOneValue === 4) props.setBalance(props.balance + 10);
                 else props.setBalance(props.balance + 5);
             } else if (
