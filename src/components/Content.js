@@ -13,18 +13,18 @@ const Content = (props) => {
                     <TableCell>Timestamp</TableCell>
                 </TableHead>
                 <TableBody>
-                    {props.results.map((elem) => {
-                        return (
-                            <TableRow>
-                                <TableCell>{elem.id}</TableCell>
-                                <TableCell>{elem.slotOne}</TableCell>
-                                <TableCell>{elem.slotTwo}</TableCell>
-                                <TableCell>{elem.slotThree}</TableCell>
-                                <TableCell>{elem.timestamp}</TableCell>
-                            </TableRow>
-                        );
-                    })}
-                </TableBody>
+                {props.results.map((elem) => {
+            return (
+              <TableRow>
+                <TableCell>{elem.id}</TableCell>
+                <TableCell>{elem.slotOne}</TableCell>
+                <TableCell>{elem.slotTwo}</TableCell>
+                <TableCell>{elem.slotThree}</TableCell>
+                <TableCell>{elem.time}</TableCell>
+              </TableRow>
+            );
+        })}
+            </TableBody>
             </Table>
             <Button
                 variant="outlined"

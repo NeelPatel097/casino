@@ -38,22 +38,21 @@ const Slots = (props) => {
 
     return (
         <div className="space">
-            <div className="slot">
-                <div className="slotvalue" id="ring">
-                    {!animation && props.slotValue}
-                    {animation && [♠, ♥, ♦, ♣].map((elem, index) => {
-                        return (
-                            <div className="slotvalue_number" id="slot" key={index}>
-                                {elem}
-                            </div>
-                        );
-                    })}
-
-                </div>
+          <div className="slot">
+            <div className="slot__value" id="ring">
+              {!animation && props.slotValue}
+              {animation &&
+                [1, 2, 3, 4].map((elem, index) => {
+                  return (
+                    <div className="slot__value__number" id="slot" key={index}>
+                      {elem}
+                    </div>
+                  );
+                })}
             </div>
-
+          </div>
         </div>
-    );
+      );
 };
 
 export default Slots;
